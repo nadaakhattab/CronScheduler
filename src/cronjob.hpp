@@ -11,7 +11,7 @@ std::chrono::time_point<std::chrono::system_clock> m_excutionTime;
 boost::function<void(void)> m_function;
 string m_identifier;
 
-CronJob(int interval, int frequency, int start, boost::function<void(void)> function, string id): 
+CronJob(int interval, int frequency, boost::function<void(void)> function, string id): 
 m_interval{ interval },
 m_frequency{ frequency },
 m_function{ function },

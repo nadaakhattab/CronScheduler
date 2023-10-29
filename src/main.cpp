@@ -35,9 +35,9 @@ void job3P(){
 int main()
 {
 	cout << "Will create scheduler: " << endl;
-	CronJob job1(5, 30, 0, job1P, "Job1");
-	CronJob job2(10, 20 , 0, job2P,"Job2");
-	CronJob job3(15, 30, 0, job3P,"Job3");
+ 	CronJob job1(5, 30, job1P, "Job1");
+	CronJob job2(10, 20 , job2P,"Job2");
+	CronJob job3(15, 30, job3P,"Job3");
 	auto scheduler = CronScheduler::GetInstance();
 	scheduler->AddJob(job1);
 	scheduler->AddJob(job2);

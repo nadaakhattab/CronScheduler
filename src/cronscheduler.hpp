@@ -4,6 +4,7 @@
 #include <vector> 
 #include <queue>
 #include <chrono>
+#include <thread>
 using namespace std;
 
 class CronScheduler{
@@ -18,12 +19,6 @@ struct CompareTime
 
 };
 
-// member variables
-static CronScheduler* s_CronScheduler;
-boost::asio::thread_pool m_pool;
-vector<CronJob> m_jobs;
-std::priority_queue<CronJob, vector<CronJob>, CompareTime> m_queue;
-
 CronScheduler(): 
 m_pool{},
 m_queue{},
@@ -34,9 +29,11 @@ m_jobs{}
 
 
 public:
-void print(){
-	std::cout << "Here" << '\n';
-} 
+
+static CronScheduler* s_CronScheduler;
+boost::asio::thread_pool m_pool;
+vector<CronJob> m_jobs;
+std::priority_queue<CronJob, vector<CronJob>, CompareTime> m_queue;
 
 // deleting copy constructor
 CronScheduler(const CronScheduler& obj) = delete; 
@@ -46,6 +43,10 @@ static CronScheduler* GetInstance();
 void AddJob(CronJob job);
 
 void ScheduleJob(CronJob job);
+
+void EmptyQueue();
+
+void RemoveJobs();
 
 CronJob RunJob();
 

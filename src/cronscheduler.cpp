@@ -36,6 +36,16 @@ std::chrono::time_point<std::chrono::system_clock>  CronScheduler::GetNextExecut
     return m_queue.top().m_excutionTime;
 }
 
+void CronScheduler::EmptyQueue (){
+    while(!m_queue.empty()){
+        m_queue.pop();
+    }
+}
+
+void CronScheduler::RemoveJobs (){
+    m_jobs.clear();
+}
+
 void CronScheduler::Run(){
     for(CronJob job: m_jobs){
         m_queue.push(job);
