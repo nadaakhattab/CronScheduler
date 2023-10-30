@@ -23,7 +23,7 @@ void job2P(){
 		current = std::chrono::system_clock::now();
 	}	
 	auto elapsedTime = current - start;
-	std::cout << "Exiting Job1 at " << std::chrono::system_clock::to_time_t(current) << "with elapsed time = " << elapsedTime.count() << '\n';		
+	std::cout << "Exiting Job1 at " << std::chrono::system_clock::to_time_t(current) << " with elapsed time = " << elapsedTime.count() << '\n';		
 } 
 
 void job3P(){
@@ -35,7 +35,7 @@ void job3P(){
 		current = std::chrono::system_clock::now();
 	}
 	auto elapsedTime = current - start;
-	std::cout << "Exiting Job1 at " << std::chrono::system_clock::to_time_t(current) << "with elapsed time = " << elapsedTime.count() << '\n';	
+	std::cout << "Exiting Job1 at " << std::chrono::system_clock::to_time_t(current) << " with elapsed time = " << elapsedTime.count() << '\n';	
 } 
 
 int main()
