@@ -62,10 +62,12 @@ BOOST_AUTO_TEST_CASE(ScheduleJobTest) {
     scheduler->EmptyQueue();
     scheduler->RemoveJobs();
     CronJob job1(5, 30, job1P, "Job1");
+    sleep(5);
 	CronJob job2(10, 20 , job2P,"Job2");
-    scheduler->ScheduleJob(job1);
     scheduler->ScheduleJob(job2);
+    scheduler->ScheduleJob(job1);
     BOOST_CHECK_EQUAL(scheduler->m_queue.size(), 2);
+    BOOST_CHECK_EQUAL(scheduler->m_queue.top().m_identifier, "Job1");
 }
 
 BOOST_AUTO_TEST_CASE(GetHighestPriorityJobTest) {
