@@ -68,7 +68,7 @@ BOOST_AUTO_TEST_CASE(ScheduleJobTest) {
     BOOST_CHECK_EQUAL(scheduler->m_queue.size(), 2);
 }
 
-BOOST_AUTO_TEST_CASE(RunJobTest) {
+BOOST_AUTO_TEST_CASE(GetHighestPriorityJobTest) {
     CronScheduler* scheduler = CronScheduler::GetInstance();
     scheduler->EmptyQueue();
     scheduler->RemoveJobs();
@@ -76,7 +76,7 @@ BOOST_AUTO_TEST_CASE(RunJobTest) {
 	CronJob job2(10, 20 , job2P,"Job2");
     scheduler->ScheduleJob(job1);
     scheduler->ScheduleJob(job2);
-    auto job = scheduler->RunJob();
+    auto job = scheduler->GetHighestPriorityJob();
 
     BOOST_CHECK_EQUAL(scheduler->m_queue.size(), 1);
 }
