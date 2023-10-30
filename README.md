@@ -39,8 +39,11 @@ Need to ensure thread safety in case jobs access same resources.
 ### Stress testing 
 Need to perform some sort of stress testing to be able to identify performance bottlenecks and look for ways to further improve the scheduler. Stress test will also allow us to find out number of jobs the scheduler is able to handle which is beneficial for production purposes.
 
-### Higher precision
+### Higher precision clock
 Use high precision clock to calculate elapsed time.
+
+### Number of threads in threadpool
+Can create threadpool with optimal number of threads based on hardware concurrency and factoring into consideration system bottlenecks. Can use little's law.
 
 ## Functions:
 
