@@ -64,3 +64,6 @@ This function runs an infinite loop that continuously checks if there are any jo
 
 ### CronJob(std::string identifier, std::function<void()> function, std::chrono::time_point<std::chrono::system_clock> excutionTime, std::chrono::seconds interval, std::chrono::seconds frequency)
 This constructor initializes a new CronJob object with an identifier, a function to execute, an execution time, an interval between executions, and a frequency of execution.
+
+## To run: 
+Run run_scheduler script
